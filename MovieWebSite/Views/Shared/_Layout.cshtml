@@ -24,6 +24,24 @@
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Movies", "Index", "Movie")</li>
                 </ul>
+                @if (Context.User.Identity.IsAuthenticated)
+                {
+                    <form id="logout_form" action="/logout" method="post">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <p class="navbar-text">Hello, <b>@Context.User.Identity.Name</b></p>
+                            </li>
+                            <li><a style="cursor: pointer;">Log Out</a></li>
+                        </ul>
+                    </form>
+                }
+                else
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/register">Register</a></li>
+                        <li><a href="/login">Log In</a></li>
+                    </ul>
+                }
             </div>
         </div>
     </div>

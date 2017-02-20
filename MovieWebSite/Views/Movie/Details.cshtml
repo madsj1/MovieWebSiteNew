@@ -4,55 +4,67 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Movie Details</h2>
 
-<div>
-    <h4>Movie</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.MovieTitle)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MovieTitle)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MovieDescription)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MovieDescription)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MovieRelease)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MovieRelease)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MovieImageURL)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MovieImageURL)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MovieTrailerURL)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MovieTrailerURL)
-        </dd>
-
-    </dl>
-</div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MovieID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MovieID }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Delete", "Delete", new { id = Model.MovieID }, new { @class = "btn btn-primary" })
 </p>
+
+<br />
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            Movie Information:
+        </h4>
+    </div>
+    <div class="panel-body">
+        <div class="col-md-4" style="margin-top:20px;">
+            <IMG src="@Model.MovieImageURL" width="300" height="444" class="img-rounded">
+        </div>
+        <div class="col-md-8">
+            <div class="col-md-12" style="vertical-align:middle; text-align:left; margin-bottom:20px;"><h2>@Model.MovieTitle</h2></div>
+
+            <table class="table table" style="word-wrap: break-word; table-layout:fixed;">
+                <tr>
+                    <th>Name: </th>
+                    <td>@Model.MovieTitle</td>
+                </tr>
+               @* <tr>
+                    <th>Genre: </th>
+                    <td>
+                        @for (int i = 0; i < Model.Genres.ToList().Count; i++)
+                    {
+                        @Model.Genres.ElementAt(i).Name
+                        if (i < Model.Genres.ToList().Count - 1)
+                        {
+                            @:,
+                        }
+                    }
+                    </td> 
+                 </tr>*@
+            <tr>
+                <th>Description: </th>
+                <td>@Model.MovieDescription</td>
+            </tr>
+            <tr>
+                <th>Released: </th>
+                <td>@String.Format("{0: dd/MM/yyyy}", Model.MovieRelease)</td>
+            </tr>
+        </table>
+        @if (!Model.MovieTrailerURL.Equals(""))
+            {
+            <div class="embed-responsive embed-responsive-16by9 col-md-12" style="margin-bottom:20px;">
+                <iframe class="embed-responsive-item" src="@Model.MovieTrailerURL" allowfullscreen></iframe>
+            </div>
+        }
+        @Html.ActionLink("Back to movies", "Index", null, new { @class = "btn btn-primary", @style = "float: right;" })
+    </div>
+</div>
+
+<br />
+</div>
+
+
+<div class="container"></div>

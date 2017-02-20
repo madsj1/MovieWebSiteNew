@@ -4,54 +4,60 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.MovieTitle)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MovieDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MovieRelease)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MovieImageURL)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MovieTrailerURL)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
+<table>
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.MovieTitle)
+            <h2>Movies:</h2>
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MovieDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MovieRelease)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MovieImageURL)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MovieTrailerURL)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MovieID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MovieID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MovieID })
+        <td></td>
+        <td></td>
+        <td></td>
+        <td align="right">
+            <p style="position:absolute; right:25%;">
+                @Html.ActionLink("New Movie", "Create", null, new { @class = "btn btn-primary" })
+            </p>
         </td>
     </tr>
-}
-
 </table>
+
+<br />
+<div class="container">
+
+    <table class="table table-striped">
+        <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Genre</th>
+            <a href="~/Views/Movie/Index.cshtml">Go back</a>
+            <th>Year</th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td style="vertical-align:middle;"><div><IMG src="@item.MovieImageURL" width="60" height="88" class="img-thumbnail"></div></td>
+                <td style="vertical-align:middle;">@item.MovieTitle</td>
+               @* <td style="vertical-align:middle; word-break:break-word; table-layout:fixed;">
+    @ @for (int i = 0; i < item.MovieGenres.ToList().Count; i++)
+        {
+            @item.MovieGenres.ElementAt(i).Name
+            if (i < item.MovieGenres.ToList().Count - 1)
+
+            {
+                @:,
+            }
+        }
+
+
+                </td>*@
+                <td style="vertical-align:middle;">@item.MovieGenres</td>
+                <td style="vertical-align:middle;">@String.Format("{0: dd/MM/yyyy}", item.MovieRelease)</td>
+                <td style="vertical-align:middle;">
+                    @Html.ActionLink("Details", "Details", new { id = @item.MovieID }, new { @class = "btn btn-primary" })
+                </td>
+            </tr>
+
+        }
+    </table>
+</div>

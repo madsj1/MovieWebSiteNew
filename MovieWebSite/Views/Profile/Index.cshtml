@@ -1,0 +1,17 @@
+﻿@using System.Security.Claims;
+
+@{
+    ViewBag.Title = "Manage Profile";
+    var claimsIdentity = (ClaimsIdentity)Context.User.Identity;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>This route is <b>protected</b> and cannot be accessed unless you are logged in.</p>
+
+<h3>Account Details</h3>
+<b>Username:</b> @claimsIdentity.Name
+<b>Email:</b> @claimsIdentity.FindFirst(ClaimTypes.Email).Value
+<b>First:</b> @claimsIdentity.FindFirst(ClaimTypes.GivenName).Value
+<b>Last:</b> @claimsIdentity.FindFirst(ClaimTypes.Surname).Value
+<b>ID (Stormpath href):</b> @claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value

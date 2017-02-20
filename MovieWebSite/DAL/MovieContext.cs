@@ -5,7 +5,8 @@ using System.Web;
 using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
-using MovieWebSite.Models;  
+using MovieWebSite.Models;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace MovieWebSite.DAL
 {
@@ -17,10 +18,11 @@ namespace MovieWebSite.DAL
 
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Genre> Genres { get; set; }
+        public DbSet<Login> Login { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Movie>().HasMany(x => x.MovieGenres).WithMany(x => x.Movies);
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
     }
 }
