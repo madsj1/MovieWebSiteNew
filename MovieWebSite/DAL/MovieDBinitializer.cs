@@ -15,7 +15,7 @@ namespace MovieWebSite.DAL
             {
                 MovieID = 1,
                 MovieTitle = "The Martian",
-                MovieGenres = "Sifi",
+                MovieGenres = "Sci-fi",
                 MovieImageURL = "http://ia.media-imdb.com/images/M/MV5BMTc2MTQ3MDA1Nl5BMl5BanBnXkFtZTgwODA3OTI4NjE@._V1__SX1473_SY687_.jpg",
                 MovieTrailerURL = "https://www.youtube.com/embed/ej3ioOneTy8",
                 MovieRelease = new DateTime(2015, 10, 8),
@@ -76,6 +76,67 @@ namespace MovieWebSite.DAL
                 MovieDescription = "A former neurosurgeon embarks on a journey of healing only to be drawn into the world of the mystic arts."
             };
             context.Movies.Add(moviefive);
+
+            Movie moviesix = new Movie()
+            {
+                MovieID = 6,
+                MovieTitle = "Jurassic World",
+                MovieGenres = "Action, Sci-fi",
+                MovieImageURL = "https://images-na.ssl-images-amazon.com/images/M/MV5BMTQ5MTE0MTk3Nl5BMl5BanBnXkFtZTgwMjczMzk2NTE@._V1_SY1000_CR0,0,631,1000_AL_.jpg",
+                MovieTrailerURL = "https://www.youtube.com/embed/XvEDQzWXS_s",
+                MovieRelease = new DateTime(2016, 6, 12),
+                MovieDescription = "A new theme park, built on the original site of Jurassic Park, creates a genetically modified hybrid dinosaur, which escapes containment and goes on a killing spree."
+            };
+            context.Movies.Add(moviesix);
+
+            Movie movieseven = new Movie()
+            {
+                MovieID = 7,
+                MovieTitle = "Logan",
+                MovieGenres = "Action, Sci-fi",
+                MovieImageURL = "https://images-na.ssl-images-amazon.com/images/M/MV5BMjI1MjkzMjczMV5BMl5BanBnXkFtZTgwNDk4NjYyMTI@._V1_SY1000_CR0,0,676,1000_AL_.jpg",
+                MovieTrailerURL = "https://www.youtube.com/embed/DekuSxJgpbY",
+                MovieRelease = new DateTime(2016, 3, 3),
+                MovieDescription = "In the near future, a weary Logan cares for an ailing Professor X in a hide out on the Mexican border." +
+                " But Logan's attempts to hide from the world and his legacy are up-ended when a young mutant arrives, being pursued by dark forces."
+            };
+            context.Movies.Add(movieseven);
+
+            Movie movieeight = new Movie()
+            {
+                MovieID = 8,
+                MovieTitle = "John Wick",
+                MovieGenres = "Action",
+                MovieImageURL = "https://images-na.ssl-images-amazon.com/images/M/MV5BMTU2NjA1ODgzMF5BMl5BanBnXkFtZTgwMTM2MTI4MjE@._V1_SY1000_CR0,0,666,1000_AL_.jpg",
+                MovieTrailerURL = "https://www.youtube.com/embed/C0BMx-qxsP4",
+                MovieRelease = new DateTime(2014, 10, 24),
+                MovieDescription = "An ex-hitman comes out of retirement to track down the gangsters that took everything from him."
+            };
+            context.Movies.Add(movieeight);
+
+            Movie movienine = new Movie()
+            {
+                MovieID = 9,
+                MovieTitle = "Edge of Tomorrow",
+                MovieGenres = "Action, Sci-fi",
+                MovieImageURL = "https://images-na.ssl-images-amazon.com/images/M/MV5BMTc5OTk4MTM3M15BMl5BanBnXkFtZTgwODcxNjg3MDE@._V1_SY1000_CR0,0,674,1000_AL_.jpg",
+                MovieTrailerURL = "https://www.youtube.com/embed/yUmSVcttXnI",
+                MovieRelease = new DateTime(2014, 6, 6),
+                MovieDescription = "A soldier fighting aliens gets to relive the same day over and over again, the day restarting every time he dies."
+            };
+            context.Movies.Add(movienine);
+
+            Movie movieten = new Movie()
+            {
+                MovieID = 10,
+                MovieTitle = "Power Rangers",
+                MovieGenres = "Sci-fi",
+                MovieImageURL = "https://images-na.ssl-images-amazon.com/images/M/MV5BMTA5MzU1NDI4NzBeQTJeQWpwZ15BbWU4MDUxMDQ0NDEy._V1_SY1000_CR0,0,674,1000_AL_.jpg",
+                MovieTrailerURL = "https://www.youtube.com/embed/5kIe6UZHSXw",
+                MovieRelease = new DateTime(2017, 3, 24),
+                MovieDescription = "A group of high-school kids, who are infused with unique superpowers, harness their abilities in order to save the world."
+            };
+            context.Movies.Add(movieten);
 
             List<Movie> genreonemovie = new List<Movie>();
             genreonemovie.Add(MovieOne);

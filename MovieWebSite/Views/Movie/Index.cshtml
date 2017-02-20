@@ -13,11 +13,18 @@
         <td></td>
         <td></td>
         <td></td>
+        @if (Context.User.Identity.IsAuthenticated)
+        {
         <td align="right">
             <p style="position:absolute; right:25%;">
                 @Html.ActionLink("New Movie", "Create", null, new { @class = "btn btn-primary" })
             </p>
         </td>
+        }
+        else
+        {
+
+        }
     </tr>
 </table>
 
@@ -29,7 +36,6 @@
             <th></th>
             <th>Title</th>
             <th>Genre</th>
-            <a href="~/Views/Movie/Index.cshtml">Go back</a>
             <th>Year</th>
             <th></th>
         </tr>

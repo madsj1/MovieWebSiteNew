@@ -5,13 +5,18 @@
 }
 
 <h2>Movie Details</h2>
+@if (Context.User.Identity.IsAuthenticated){
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.MovieID }, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Delete", "Delete", new { id = Model.MovieID }, new { @class = "btn btn-primary" })
+    </p>
+    }
+else
+    {
 
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MovieID }, new { @class = "btn btn-primary" })
-    @Html.ActionLink("Delete", "Delete", new { id = Model.MovieID }, new { @class = "btn btn-primary" })
-</p>
+    }
 
-<br />
+<br/>
 
 <div class="panel panel-default">
     <div class="panel-heading">
